@@ -13,45 +13,68 @@
 	var input-password = getElemetById('input-password').value;
 	
 } */
+	function validacionForm(){
+		var letras = /^[A-Za-z\_\-\.\s\xF1\xD1]+$/;
 
+		function name(){
+		 	var name = document.getElemetById('name').value;
+		 	if (name == null || name.length == 0 || /^\s+$/.test(name)){
+		 		alert('Debes ingresar tu nombre');
+		 		return false;
+		 	} else if (!letras.test(name)){
+		 		alert("Solo letras");
+		 		return true;
+		 	} else if(name.charAt(0) != name.charAt(0).toUpperCase()){
+		 		alert('La primera letra debe ser Mayuscula, Ej: Emelys')
+		 	}
+		}
+		 name();
 
-function validacionForm(){
-	var signosyletras = /^[A-Za-z\_\-\.\s\xF1\xD1]+$/;
+		function lastname(){
+		 	var lastname = document.getElemetById('lastname').value;
+		 	if(lastname == null || lastname.length == 0 || lastname.length == 0 || /^\s+$/.test(lastname)){
+		 		alert("Debes ingresar tu apellido");
+		 		return true;
+		 	} else if(!letras.test(lastname)){
+		 		alert("Solo letras");
+		 		return true;
+		 	} else if(lastname.charAt(0) != lastname.charAt(0).toUpperCase()) {
+		 		alert('La primera letra debe ser Mayuscula, Ej: Arellano');
+		 	}
+		 } 
+		lastname();
 
-function nombre(){
- 	var nombre = document.getElemetById('name').value;
- 	if (nombre == null || nombre.length == 0 || /^\s+$/.test(nombre)){
- 		alert('Debes ingresar tu nombre');
- 		return false;
- 	} else if (!signosyletras.test(nombre)){
- 		alert("Solo letras");
- 		return true;
- 	} else if(nombre.charAt(0) != nombre.charAt(0).toUpperCase()){
- 		alert('La primera letra debe ser Mayuscula, Ej: Emelys')
- 	}
- }
- nombre();
+		function correoElectronico(){
+			var simbolos = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+			var correoElectronico = document.getElemetById('input-email').value;
+			if (correoElectronico === null || correoElectronico.length === 0){
+				alert('Ingresa tu correoElectronico');
+				return false;
+			} else if(simbolos.test(correoElectronico)){
+				return true;
+			}
+	    }
+	    correoElectronico();
 
- function lastname(){
- 	var lastname = document.getElemetById('lastname').value;
- 	if(lastname == null || lastname.length == 0 || lastname.length == 0 || /^\s+$/.test(lastname)){
- 		alert("Debes ingresar tu apellido");
- 		return true;
- 	} else if(!signosyletras.test(lastname)){
- 		alert("Solo letras");
- 		return true;
- 	} else if(lastname.charAt(0) != lastname.charAt(0).toUpperCase()) {
- 		alert('La primera letra debe ser Mayuscula, Ej: Arellano');
- 	}
- } 
-apellido();
+	    function contrasenia(){
+	    	var contrasenia = document.getElemetById('input-Password').value;
+	    	if (contrasenia == null || contrasenia.length == 0) {
+	    		alert('Ingresa tu contraseñia');
+	    		return false;
+	    	} else if(contrasenia.length < 6){
+	    		alert('Tu contraseña es muy facil');
+	    		return false;
+	    	}
+	    }
+	    contrasenia();
 
-/*function correoElectronico(){
-	var simbolos = 
-}*/
+	    function modeloBici(){
+	    	var selector = document.getElemetsByTagNeme('select');
+	    	var modelo = select.value;
 
-}
-
-
+	    	return modelo == 'Urbana' || modelo == 'Treking' || modelo == 'Eléctrica' || modelo == 'Estática';
+	    }
+	    modeloBici();
+	}
 
 
